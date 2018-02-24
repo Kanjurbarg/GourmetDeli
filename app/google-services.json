@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "580286713408",
+    "firebase_url": "https://gourmetdeli-75d85.firebaseio.com",
+    "project_id": "gourmetdeli-75d85",
+    "storage_bucket": "gourmetdeli-75d85.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:580286713408:android:34d0989564b91911",
+        "android_client_info": {
+          "package_name": "com.rohankhadapkar.gourmetdeli"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "580286713408-on73h57ggjccnhvvt6l4cbcf954s90vs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rohankhadapkar.gourmetdeli",
+            "certificate_hash": "b21628f844f9d50b161c6ff694d17e49b50655c4"
+          }
+        },
+        {
+          "client_id": "580286713408-71lslf5vlpqku64q634jg24legb6rnqu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjRI7GoO-pr8qi9QCSE45fZjQX0WtQTDA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "580286713408-71lslf5vlpqku64q634jg24legb6rnqu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

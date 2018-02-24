@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">GourmetDeli</string>
+    <string name="title_menu">Menu</string>
+    <string name="title_orders">Orders</string>
+    <string name="title_track_order">Track Orders</string>
+    <string name="title_about_us">About Us</string>
+    <string name="title_profile">Profile</string>
+
+</resources>
