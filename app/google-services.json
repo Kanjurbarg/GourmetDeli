@@ -8,14 +8,14 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:580286713408:android:34d0989564b91911",
+        "mobilesdk_app_id": "1:580286713408:android:dd49f95e73fb7fca",
         "android_client_info": {
           "package_name": "com.rohankhadapkar.gourmetdeli"
         }
       },
       "oauth_client": [
         {
-          "client_id": "580286713408-on73h57ggjccnhvvt6l4cbcf954s90vs.apps.googleusercontent.com",
+          "client_id": "580286713408-8uvasotaeaj5tsb42v3iekdqjvbl6ne4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.rohankhadapkar.gourmetdeli",
