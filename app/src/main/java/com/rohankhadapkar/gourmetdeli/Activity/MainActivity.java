@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,7 +14,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity
     private ActionBarDrawerToggle toggle;
     private TextView textName,textEmailId;
     private ImageView profilePic;
+    private FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("Menu");
         navigationView = findViewById(R.id.nav_view);
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
@@ -62,11 +64,14 @@ public class MainActivity extends AppCompatActivity
         textName = navHeader.findViewById(R.id.txtName);
         textEmailId = navHeader.findViewById(R.id.txtEmailId);
         profilePic = navHeader.findViewById(R.id.profilePicture);
+
         
         loadNavigationHeader();
 
         MenuFragment menuFragment = new MenuFragment();
         setFragment(menuFragment);
+        toolbar.setTitle("Menu");
+
     }
 
     protected void loadNavigationHeader() {
@@ -121,6 +126,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -144,16 +150,19 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_menu)
         {
             MenuFragment menuFragment = new MenuFragment();
+            toolbar.setTitle("Menu");
             setFragment(menuFragment);
         }
         else if (id == R.id.nav_orders)
         {
             OrdersFragment ordersFragment = new OrdersFragment();
+            toolbar.setTitle("Orders");
             setFragment(ordersFragment);
         }
         else if (id == R.id.nav_notifications)
         {
             NotificationFragment notificationFragment = new NotificationFragment();
+            toolbar.setTitle("Notifications");
             setFragment(notificationFragment);
         }
         else if (id == R.id.nav_signOut)
@@ -176,8 +185,9 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void setFragment(android.support.v4.app.Fragment fragment) {
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.main_frame,fragment);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 
@@ -186,4 +196,7 @@ public class MainActivity extends AppCompatActivity
         super.onResume();
         loadNavigationHeader();
     }
+
+
+
 }
