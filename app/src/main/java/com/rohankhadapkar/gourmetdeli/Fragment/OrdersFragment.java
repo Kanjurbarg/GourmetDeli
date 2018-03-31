@@ -9,14 +9,12 @@ import android.view.ViewGroup;
 
 import com.rohankhadapkar.gourmetdeli.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class OrdersFragment extends Fragment {
 
 
-    public OrdersFragment() {
-        // Required empty public constructor
+    public OrdersFragment()
+    {
+
     }
 
 

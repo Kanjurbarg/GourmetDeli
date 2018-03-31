@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.rohankhadapkar.gourmetdeli.Activity.Cart">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/listCart"
+            android:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottomBar">
+
+        </android.support.v7.widget.RecyclerView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorPrimary">
+
+        <RelativeLayout
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/totalCost"
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerVertical="true"
+                    android:textColor="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:text="Total : \u20B9" />
+
+                <TextView
+                    android:id="@+id/total"
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/totalCost"
+                    android:textColor="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:text="$1000" />
+
+                <Button
+                    android:id="@+id/placeOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:text="Place Order" />
+
+         </RelativeLayout>
+
+     </android.support.v7.widget.CardView>
+
+ </RelativeLayout>

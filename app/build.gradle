@@ -32,8 +32,11 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:1.2.1'
 
     //Glide Dependencies
-    implementation 'com.github.bumptech.glide:glide:4.5.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.5.0'
+    implementation 'com.github.bumptech.glide:glide:4.6.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+
+    //Picasso Dependencies
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 
     //Firebase Dependencies
     implementation 'com.google.firebase:firebase-core:11.8.0'
@@ -42,6 +45,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:11.8.0'
     implementation 'com.google.firebase:firebase-storage:11.8.0'
     implementation 'com.firebaseui:firebase-ui-database:3.2.2'
+
+    //Elegant Number
+    implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'
+
+    //Font Awesome Dependency
+    implementation 'com.joanzapata.iconify:android-iconify-fontawesome:2.2.2'
 
 }
 apply plugin: 'com.google.gms.google-services'

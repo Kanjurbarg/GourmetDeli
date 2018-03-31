@@ -5,6 +5,12 @@
     tools:context="com.rohankhadapkar.gourmetdeli.Fragment.MenuFragment"
     android:id="@+id/menu_fragment">
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerMenu"
             android:layout_width="match_parent"

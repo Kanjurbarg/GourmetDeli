@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity
     private DrawerLayout drawer;
     private Toolbar toolbar;
     private ActionBarDrawerToggle toggle;
-    private TextView textName,textEmailId;
+    private TextView textName, textEmailId;
     private ImageView profilePic;
     private FragmentTransaction fragmentTransaction;
 
@@ -47,7 +46,6 @@ public class MainActivity extends AppCompatActivity
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Menu");
         navigationView = findViewById(R.id.nav_view);
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
@@ -65,20 +63,18 @@ public class MainActivity extends AppCompatActivity
         textEmailId = navHeader.findViewById(R.id.txtEmailId);
         profilePic = navHeader.findViewById(R.id.profilePicture);
 
-        
         loadNavigationHeader();
 
         MenuFragment menuFragment = new MenuFragment();
         setFragment(menuFragment);
-        toolbar.setTitle("Menu");
+        setTitle("Menu");
 
     }
 
     protected void loadNavigationHeader() {
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
-        if (user != null)
-        {
+        if (user != null) {
             navigationView.getMenu().clear();
             navigationView.inflateMenu(R.menu.activity_main_drawer);
             textName.setText(user.getDisplayName());
@@ -86,11 +82,9 @@ public class MainActivity extends AppCompatActivity
             textEmailId.setVisibility(View.VISIBLE);
             textEmailId.setText(user.getEmail());
             photoUrl = user.getPhotoUrl().toString();
-            photoUrl = photoUrl.replace("s96","s250");
+            photoUrl = photoUrl.replace("s96", "s250");
             Glide.with(this).load(Uri.parse(photoUrl)).into(profilePic);
-        }
-        else
-        {
+        } else {
             navigationView.getMenu().clear();
             navigationView.inflateMenu(R.menu.activity_main_signout_drawer);
             textName.setText("Sign In");
@@ -101,9 +95,9 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(MainActivity.this, AuthUiActivity.class);
-                    intent.putExtra("Account","SignIn");
+                    intent.putExtra("Account", "SignIn");
                     startActivity(intent);
-                    overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
+                    overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
                 }
             });
         }
@@ -135,8 +129,13 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        /*if (id == R.id.action_settings) {
             return true;
+        }*/
+
+        if (id == R.id.cart) {
+            Intent intent = new Intent(MainActivity.this, Cart.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -147,36 +146,27 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_menu)
-        {
+        if (id == R.id.nav_menu) {
             MenuFragment menuFragment = new MenuFragment();
-            toolbar.setTitle("Menu");
+            setTitle("Menu");
             setFragment(menuFragment);
-        }
-        else if (id == R.id.nav_orders)
-        {
+        } else if (id == R.id.nav_orders) {
             OrdersFragment ordersFragment = new OrdersFragment();
-            toolbar.setTitle("Orders");
+            setTitle("Orders");
             setFragment(ordersFragment);
-        }
-        else if (id == R.id.nav_notifications)
-        {
+        } else if (id == R.id.nav_notifications) {
             NotificationFragment notificationFragment = new NotificationFragment();
-            toolbar.setTitle("Notifications");
+            setTitle("Notifications");
             setFragment(notificationFragment);
-        }
-        else if (id == R.id.nav_signOut)
-        {
-            Intent intent = new Intent(MainActivity.this,AuthUiActivity.class);
-            intent.putExtra("Account","SignOut");
+        } else if (id == R.id.nav_signOut) {
+            Intent intent = new Intent(MainActivity.this, AuthUiActivity.class);
+            intent.putExtra("Account", "SignOut");
             startActivity(intent);
-            overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
-        }
-        else if (id == R.id.nav_about_us)
-        {
-            Intent intent = new Intent(MainActivity.this,AboutUsActivity.class);
+            overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
+        } else if (id == R.id.nav_about_us) {
+            Intent intent = new Intent(MainActivity.this, AboutUsActivity.class);
             startActivity(intent);
-            overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
+            overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -186,8 +176,7 @@ public class MainActivity extends AppCompatActivity
 
     private void setFragment(android.support.v4.app.Fragment fragment) {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.main_frame,fragment);
-        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.replace(R.id.main_frame, fragment);
         fragmentTransaction.commit();
     }
 
@@ -196,7 +185,5 @@ public class MainActivity extends AppCompatActivity
         super.onResume();
         loadNavigationHeader();
     }
-
-
 
 }
